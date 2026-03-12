@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+
+
 
 export default function Header () {
     return(
@@ -14,8 +15,13 @@ export default function Header () {
                     </ul>
                 </nav>
                     <input className=" bg-gray-400 rounded-2xl py-1.5 px-4 w-52 outline-none text-white placeholder:text-white " type="text" placeholder="Buscar anime"/>
-                    <Link to="{/login}" className='hover:text-blue-400'>Login</Link>
-                    <Link to="{/register}" className='hover:text-blue-400'>Register</Link>
+
+                <div className='w-12 h-12 bg-gray-400 rounded-full fixed right-0 mr-4 cursor-pointer'></div>
+                
+
+                    {/* <Link to="/login" className='hover:text-blue-400'>Login</Link>
+                    <Link to="/register" className='hover:text-blue-400'>Register</Link> */}
+
                     </div> {/*container*/}
             </header>
 
