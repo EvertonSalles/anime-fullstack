@@ -10,4 +10,7 @@ export default interface Anime{
     score:number;
     year:number;
     synopsis:string;
+    animes: Anime[];
+    
+
 }

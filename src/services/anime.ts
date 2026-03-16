@@ -1,8 +1,13 @@
-import {api} from './api'
+import {Animeapi} from './client'
 import type Anime from '../types/anime'
 
 
-export async function getAnimes():Promise<Anime[]>{
-    const res = await api.get('/top/anime')
-    return res.data.data
+export async function getAnimes(page: number = 1):Promise<Anime[]>{
+    const res = await Animeapi.get('/top/anime', {
+         params: {page}
+    })
+   
+    return res.data.data   
+    
+    
 }

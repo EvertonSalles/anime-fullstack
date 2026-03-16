@@ -14,6 +14,7 @@ export default function Home(){
     return(
         <div>
             <Header/>
+            
             <main className=' w-[90%] mx-auto h-screen "'> 
             <div className='mt-24 grid grid-cols-1 gap-4  bg-gray-500 md:grid-cols-2 lg:grid-cols-3'>
                 {animes.map((item) => (
