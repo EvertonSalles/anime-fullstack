@@ -1,19 +1,22 @@
 import UserMenu from "./UserMenu"
-import { useEffect, useState } from "react"
+import { useState } from "react";
+
 
 
 export default function UserModal(){
-    const [isLogged, setIsLogged] = useState(false)
+    
+const  [open,setOpen] = useState(false);
 
-    useEffect(()=>{
-        const token = localStorage.getItem('token');
-        if(token) {
-            setIsLogged(true)
-        }
-    }, [])
+const toggleModel = () =>{
+    setOpen(!open);
+}; 
+
+    
     return(
-       <div className='w-12 h-12 bg-gray-400 rounded-full   '>
-           <UserMenu/>
+       <div className='w-12 h-12 bg-gray-400 rounded-full   cursor-pointer' onClick={toggleModel}>
+
+           {open && <UserMenu  />}
+           
        </div>
     )
 }
