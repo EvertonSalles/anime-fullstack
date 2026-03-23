@@ -19,14 +19,14 @@ export default function Header({ handleCategory, activeCategory }: HeaderProps) 
           Animes React
         </h1>
 
-        <nav className="hidden md:flex">
-          <ul className="flex gap-6">
+        <nav className="hidden md:flex ">
+          <ul className="flex gap-6 ">
 
            
-            <li>
+            <li >
               <button 
                 onClick={() => handleCategory("top")}
-                className={activeCategory === "top" ? "text-mauve-900" : ""}
+                className=  {activeCategory === "top" ? "text-mauve-900" : "cursor-pointer"} 
               >
                 Destaques
               </button>
@@ -36,7 +36,7 @@ export default function Header({ handleCategory, activeCategory }: HeaderProps) 
             <li>
               <button 
                 onClick={() => handleCategory("all")}
-                className={activeCategory === "all" ? "text-mauve-900" : ""}
+                className={activeCategory === "all" ? "text-mauve-900" : "cursor-pointer"}
               >
                 Todos
               </button>
@@ -46,7 +46,7 @@ export default function Header({ handleCategory, activeCategory }: HeaderProps) 
             <li>
               <button 
                 onClick={() => handleCategory("new")}
-                className={activeCategory === "new" ? "text-mauve-900" : ""}
+                className={activeCategory === "new" ? "text-mauve-900" : "cursor-pointer"}
               >
                 Novidades
               </button>
@@ -56,7 +56,7 @@ export default function Header({ handleCategory, activeCategory }: HeaderProps) 
             <li className="relative">
               <button 
                 onClick={() => setOpenGenres(prev => !prev)}
-                className={activeCategory.includes("genre") ? "text-mauve-900" : ""}
+                className={activeCategory.includes("genre") ? "text-mauve-900" : "cursor-pointer"}
               >
                 Categorias
               </button>

@@ -25,7 +25,7 @@ export default function DetailsAnime(){
     }
     return(
         <div className="">        
-            <Link to="/" className="text-white left-0 top-0 text-2xl fixed ml-3 mt-2">Voltar</Link>
+            <Link to="/" className="text-white left-0 top-0 text-2xl fixed ml-4 mt-3">Voltar</Link>
 
         <div className="w-[70%]  mx-auto mt-30 ">
 
