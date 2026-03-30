@@ -27,15 +27,15 @@ export default function DetailsAnime(){
         <div className="">        
             <Link to="/" className="text-white left-0 top-0 text-2xl fixed ml-4 mt-3">Voltar</Link>
 
-        <div className="w-[70%]  mx-auto mt-30 ">
+        <div className="w-[70%]  mx-auto mt-30 lg:mt-">
 
-            <div className="flex justify-between text-white  h-screen">
+            <div className="flex flex-col items-center  text-white lg:flex-row lg:justify-between min-h-screen">
 
-                <div className="flex w-[50%] h-2/3 justify-center items-center  mx-auto " >
-                    <img src={anime.images.jpg.large_image_url} className="h-[80%] "/>
+                <div className="flex w-full lg:w-1/2 justify-center items-center">
+                  <img src={anime.images.jpg.large_image_url} className="w-60 md:w-auto md:h-[80%]" />
                 </div>
 
-                <div className="flex flex-col    w-[50%] h-2/3 items-center  justify-between ">           
+                <div className="flex flex-col w-full lg:w-1/2 items-center text-center lg:text-left gap-2 mt-6 lg:mt-0">      
                    <h1 className="text-2xl font-bold">{anime.title} </h1>
                    <p>episodios: {anime.episodes}</p>
                    <p>{anime.duration}</p>
