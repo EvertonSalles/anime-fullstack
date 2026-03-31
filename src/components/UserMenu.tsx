@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom"
-export default function UserMenu(){
-    return(
-        <div className=" bg-gray-800 h-40 w-screen mt-14 flex flex-col  cursor-auto" >
-            <div className="h-20 my-auto flex flex-col gap-9 ml-1 ">
-            <Link to="/favorites" className="w-16">Favoritos</Link> 
-            <Link to="/login" className=" w-8">Sair</Link>
-            </div>
-        </div>
-    )
+
+interface UserMenuProps {
+  logout: () => void;
+}
+
+export default function UserMenu({ logout }: UserMenuProps) {
+  return (
+    <div className="absolute right-0 top-14 bg-gray-800 rounded-lg shadow-lg w-40 flex flex-col p-3 gap-3 z-50">
+      <Link to="/favorites" className="text-white hover:text-purple-400 transition-colors">
+         Favoritos
+      </Link>
+      <button
+        onClick={logout}
+        className="text-left text-red-400 hover:text-red-300 transition-colors cursor-pointer"
+      >
+         Sair
+      </button>
+    </div>
+  );
 }

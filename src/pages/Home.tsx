@@ -92,7 +92,7 @@ export default function Home(){
 
       <main className='w-[90%] mx-auto pb-10'> 
         
-        <div className='mt-24 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='mt-24 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3'>
           {animes.map((item) => (
             <CardAnime 
               key={`${item.mal_id}-${category}-${page}`} 

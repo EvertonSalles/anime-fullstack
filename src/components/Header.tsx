@@ -28,12 +28,12 @@ export default function Header({
 
         <nav className="hidden md:flex ">
           <ul className="flex gap-6 ">
-            <li>
+           <li>
               <button 
-                onClick={() => handleCategory("top")}
-                className={activeCategory === "top" ? "text-mauve-900 font-bold" : "cursor-pointer"} 
+                onClick={() => handleCategory("new")}
+                className={activeCategory === "new" ? "text-mauve-900 font-bold" : "cursor-pointer"}
               >
-                Destaques
+                Novidades
               </button>
             </li>
 
@@ -45,15 +45,16 @@ export default function Header({
                 Todos
               </button>
             </li>
-
-            <li>
+             <li>
               <button 
-                onClick={() => handleCategory("new")}
-                className={activeCategory === "new" ? "text-mauve-900 font-bold" : "cursor-pointer"}
+                onClick={() => handleCategory("top")}
+                className={activeCategory === "top" ? "text-mauve-900 font-bold" : "cursor-pointer"} 
               >
-                Novidades
+                Destaques
               </button>
             </li>
+
+            
 
             <li className="relative">
               <button 

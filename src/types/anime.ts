@@ -26,8 +26,8 @@ export default interface Anime {
   episodes: number;
   duration: string;
 
-  status: string; // Finished, Airing...
-  rating: string; // PG-13, R...
+  status: string;
+  rating: string; 
 
   year: number;
   aired: {
