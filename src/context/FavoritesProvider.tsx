@@ -20,7 +20,7 @@ export default function FavoritesProvider({ children }: { children: ReactNode })
     }
 
     try {
-      const res = await axios.get("http://localhost:3000/animes/favorites", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/animes/favorites`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

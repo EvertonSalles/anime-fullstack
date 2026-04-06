@@ -16,7 +16,7 @@ export function useAuth() {
     const token = localStorage.getItem("token");
     if (!token) { setLoading(false); return; }
 
-    axios.get("http://localhost:3000/users/me", {
+    axios.get(`${import.meta.env.VITE_API_URL}/users/me`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => setUser(res.data))

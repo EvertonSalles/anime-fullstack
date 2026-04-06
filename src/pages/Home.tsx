@@ -21,7 +21,7 @@ export default function Home(){
 
       if (category === "search" && debouncedSearch) {
      
-        res = await axios.get("http://localhost:3000/api/search", {
+        res = await axios.get(`${import.meta.env.VITE_API_URL}/api/search`, {
           params: { q: debouncedSearch, page: page }
         })
       } else {

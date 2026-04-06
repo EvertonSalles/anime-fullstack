@@ -28,7 +28,7 @@ export default function CardAnime({ anime }: AnimeCardProps) {
 
         try {
             
-            await axios.post("http://localhost:3000/animes/favorites", {
+            await axios.post(`${import.meta.env.VITE_API_URL}/animes/favorites`, {
                 mal_id: anime.mal_id,
                 titulo: anime.title,
                 imagemUrl: anime.images.jpg.image_url
