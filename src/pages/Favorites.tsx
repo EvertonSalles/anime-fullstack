@@ -1,71 +1,55 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import CardAnime from "../components/CardAnime";
-
-
-interface FavoriteItem {
-  id: string;
-  mal_id: number;
-  titulo: string;
-  imagemUrl: string;
-}
+import { FavoritesContext } from "../context/FavoritesContext";
+import type Anime from "../types/anime";
 
 export default function Favorites() {
-  const [favorites, setFavorites] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const token = localStorage.getItem("token");
-
-  useEffect(() => {
-    async function loadFavorites() {
-      try {
-        const res = await axios.get("http://localhost:3000/animes/favorites", {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        setFavorites(res.data);
-      } catch (error) {
-        console.error("Erro ao carregar favoritos:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    if (token) loadFavorites();
-  }, [token]);
+  const { favorites } = useContext(FavoritesContext);
 
   return (
-    <div className="bg-gray-900 min-h-screen pb-10">
-      <div className="w-[90%] mx-auto pt-6">
-        <Link 
-          className="text-white bg-gray-600 px-4 py-2 rounded-lg hover:bg-gray-500 transition-colors" 
-          to="/"
-        >
-          ← Voltar para Home
-        </Link>
-        <h1 className="text-white text-3xl font-bold mt-8">Meus Favoritos</h1>
-      </div>
+    <div className="bg-gray-900 min-h-screen">
+      <Link to="/" className="text-white left-0 top-0 text-2xl fixed ml-4 mt-3 z-10">
+        Voltar
+      </Link>
 
-      <main className="w-[90%] mx-auto mt-10">
-        {loading ? (
-          <p className="text-white text-center">Carregando...</p>
-        ) : favorites.length > 0 ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {favorites.map((fav: FavoriteItem) => (
-             
-              <CardAnime 
-                key={fav.id} 
+      <div className="w-[90%] md:w-[80%] xl:w-[70%] mx-auto pt-16 pb-10">
+        <h1 className="text-white text-2xl md:text-3xl font-bold my-6 md:my-8 text-center">
+          Meus Favoritos
+        </h1>
+
+        {favorites.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {favorites.map((fav) => (
+              <CardAnime
+                key={fav.mal_id}
                 anime={{
                   mal_id: fav.mal_id,
                   title: fav.titulo,
-                  images: { jpg: { image_url: fav.imagemUrl } }
-                }} 
+                  images: {
+                    jpg: {
+                      image_url: fav.imagemUrl,
+                      large_image_url: fav.imagemUrl,
+                    },
+                  },
+                } as Anime}
               />
             ))}
           </div>
         ) : (
-          <p className="text-gray-400 text-center mt-20">Nada favoritado ainda.</p>
+          <div className="flex flex-col items-center justify-center mt-32 md:mt-48 text-center gap-4">
+            <p className="text-gray-400 text-lg md:text-xl">
+              Nada favoritado ainda.
+            </p>
+            <Link
+              to="/"
+              className="text-purple-400 hover:text-purple-300 transition-colors text-sm md:text-base"
+            >
+              Explorar animes →
+            </Link>
+          </div>
         )}
-      </main>
+      </div>
     </div>
   );
 }

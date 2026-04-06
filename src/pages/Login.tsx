@@ -19,10 +19,11 @@ export default function Login() {
             
             const { token } = response.data;
 
-            localStorage.setItem('token', token);
+           localStorage.setItem('token', token);
+window.dispatchEvent(new Event("storage")); 
+alert('Login realizado com sucesso')
+navigate('/');
 
-            alert('Login realizado com sucesso')
-            navigate('/');
         }catch(error){
             console.error(error)
             console.log(data)
